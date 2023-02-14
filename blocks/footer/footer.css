@@ -1,7 +1,8 @@
 footer {
-  padding: 2rem;
-  background-color: var(--overlay-background-color);
-  font-size: var(--body-font-size-s);
+  background-color: #FAFAFA;
+  padding-top: 40px;
+  padding-bottom: 20px;
+  justify-content: center;
 }
 
 footer .footer {
@@ -12,3 +13,32 @@ footer .footer {
 footer .footer p {
   margin: 0;
 }
+
+footer ul li {
+  list-style-type: none;
+  color: #4B4B4B;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+footer ul li ul {
+  padding-left:0;
+}
+
+footer ul li ul li {
+  color: #4B4B4B;
+  font-size: 12px;
+  font-weight: 400;
+}
+
+#feds-footer ul li ul li a {
+  color: #4B4B4B;
+  text-decoration: none!important;
+  -webkit-transition: color 1s; /* For Safari 3.0 to 6.0 */
+  transition: color 1s; 
+}
+
+#feds-footer ul li ul li a:hover {
+  color:#aeaeae;
+}
+
