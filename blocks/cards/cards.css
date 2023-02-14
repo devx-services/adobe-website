@@ -90,7 +90,7 @@
 }
 
 @media (min-width: 1200px) {
-    .section > div {
+    .section.cards-grid > div {
         margin: 0;
     }
 
