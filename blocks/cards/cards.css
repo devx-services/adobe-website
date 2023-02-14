@@ -7,7 +7,7 @@
     line-height: 1.375rem;
     display: flex;
     gap: 50px;
-    height: 500px
+    height: 500px;
 }
 
 .cards-item .card-image > picture > img {
@@ -57,27 +57,29 @@
     /*display: inline-block;*/
 }
 
+.card-text .button-container > a:link,
 .card-text .button-container > a:active,
-.card-text .button-container > a:visited {
+.card-text .button-container > a:visited
+{
     text-decoration: none;
+    color: inherit ! important;
 
 }
 
-.card-text .button-container > a {
-    color: black;
-    font-size: var(--body-font-size-s);
-    font-weight: bold
-}
+/*.card-text .button-container > a {*/
+/*    !*color: black;*!*/
+/*    font-size: var(--body-font-size-s);*/
+/*    font-weight: bold*/
+/*}*/
 
 .card-text > h2 {
-    color: black;
     font-size: 1.5rem;
     font-family: var(--body-font-family);
     line-height: 1.75rem;
 }
 
 .card-text > hr {
-    border-bottom: 1px solid #000000;
+    border-bottom: 1px solid;
     width: 90%;
     margin: 0;
     box-sizing: border-box;
@@ -94,13 +96,14 @@
         flex-wrap: wrap;
     }
 }
-
+/*add white color for text*/
+.centered-pictures .cards-wrapper .cards .cards-item:nth-child(n+2),
+.middle-text-white .cards-wrapper .cards .cards-item:nth-child(2) {
+    color: white;
+}
 @media (min-width: 1200px) {
     .section.cards-grid >div {
         margin: 0;
-        /*width: 100vw;*/
-        /*box-sizing: border-box;*/
-        /*padding: 0;*/
     }
 
     .cards.block {
