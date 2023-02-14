@@ -19,11 +19,11 @@ export default function decorate(block) {
 
       } else if (div.querySelector('picture') && rowImageCount >= 1) {
         //style for images to overlap
-        div.className = 'card-image-centered'
+        div.className = 'card-image-positioned'
       } else {
         div.className = 'card-text'
         // add horizontal line
-        if (div.querySelectorAll('h2').length > 1) {
+        if (div.querySelectorAll('h2') && div.querySelectorAll('.button-container').length > 1) {
           //add vertical line after heading
           div.querySelectorAll('h2').forEach(((heading) => {
             let hrContainer = document.createElement('hr');
