@@ -58,7 +58,7 @@
 
 .panel a.button.secondary {
     border: none;
-    color: currentColor;
+    color: currentcolor;
 }
 
 .panel .button-container {
@@ -67,5 +67,5 @@
 
 .panel.red a.button.secondary{
     border: 2px solid currentcolor;
-    color: currentColor;
+    color: currentcolor;
 }
