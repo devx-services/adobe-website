@@ -1,0 +1,71 @@
+.panel {
+    position: relative;
+    justify-content: center;
+    color: white;
+    display: flex;
+    width: 100%;
+    margin: 0;
+}
+
+.panel .foreground {
+    position: relative;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+}
+
+.panel.large {
+    display: flex;
+    min-height: 700px;
+    position: relative;
+}
+
+.panel img {
+    width: 90%;
+}
+
+.panel .background {
+    position: relative;
+    min-height: 700px;
+    overflow: hidden;
+    
+}
+
+.panel .background img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.panel.large.blue {
+    background-color: #88D6DD;
+    color: black;
+}
+
+.panel.large.red {
+    background-color: #fc2404;
+    color: white;
+}
+
+.panel.large .text {
+    width: 90%;
+    font-size: 1.125rem;
+}
+
+.panel a.button {
+    font-size: 14px;
+}
+
+.panel a.button.secondary {
+    border: none;
+    color: currentColor;
+}
+
+.panel .button-container {
+    display: inline-block;
+}
+
+.panel.red a.button.secondary{
+    border: 2px solid currentcolor;
+    color: currentColor;
+}
