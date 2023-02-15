@@ -6,10 +6,10 @@ import { readBlockConfig, decorateIcons } from '../../scripts/lib-franklin.js';
  */
 
 export default async function decorate(block) {
-  const ul = document.createElement('ul');
+  const ul = document.createElement('div');
   ul.className = 'footer-menu';
   [...block.children].forEach((row) => {
-    const li = document.createElement('li');
+    const li = document.createElement('div');
     li.innerHTML = row.innerHTML;
     ul.append(li);
   });

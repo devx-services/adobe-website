@@ -23,32 +23,32 @@ footer .footer p {
 
 }
 
-footer ul li {
+.footer-menu ul li {
   list-style-type: none;
   color: #4B4B4B;
   font-weight: 600;
   font-size: 15px;
 }
 
-footer ul li ul {
+.footer-menu ul li ul {
   padding-left:0;
 }
 
-footer ul li ul li ul li {
+.footer-menu ul li ul li {
   color: #4B4B4B;
   font-size: 12px;
   font-weight: 400;
   line-height: 2;
 }
 
-#feds-footer ul li ul li ul li a {
+.footer-menu ul li ul li a {
   color: #4B4B4B;
   text-decoration: none!important;
   -webkit-transition: color 1s; /* For Safari 3.0 to 6.0 */
   transition: color 1s; 
 }
 
-#feds-footer ul li ul li ul li a:hover {
+.footer-menu ul li ul li a:hover {
   color:#aeaeae;
 }
 
