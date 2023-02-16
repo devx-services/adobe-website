@@ -76,8 +76,9 @@ ul.nav-top-section>li>ul>li:hover {
     background-color: #F5F5F5;
 }
 
-ul.nav-top-section {
+div.nav-top-section-wrapper {
     display: none;
+    justify-content: center;
     position: absolute;
     z-index: 1;
     width: calc(100vw - 8px);
@@ -127,4 +128,8 @@ i.nav-top-section-drop-arrow-up {
 
 ul.nav-top-section-visible {
     display: block;
+}
+
+div.nav-top-section-wrapper-visible {
+    display: flex;
 }

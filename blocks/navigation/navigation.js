@@ -6,7 +6,7 @@ import { readBlockConfig, decorateIcons } from '../../scripts/lib-franklin.js';
 function openCloseNavTopSectionClickHandler(event) {
   function reset() {
     // reset to a "default" state
-    document.querySelectorAll('ul.nav-top-section').forEach((item) => item.classList.remove('nav-top-section-visible'));
+    document.querySelectorAll('div.nav-top-section-wrapper').forEach((item) => item.classList.remove('nav-top-section-wrapper-visible'));
     document.querySelectorAll('i.nav-top-section-drop-arrow').forEach((item) => {
       item.classList.remove('nav-top-section-drop-arrow-up');
       item.classList.add('nav-top-section-drop-arrow-down');
@@ -23,10 +23,15 @@ function openCloseNavTopSectionClickHandler(event) {
     arrowElement.classList.remove('nav-top-section-drop-arrow-down');
     arrowElement.classList.add('nav-top-section-drop-arrow-up');
 
-    arrowElement.closest('li').querySelector('ul').classList.add('nav-top-section-visible');
+    arrowElement.closest('li').querySelector('div').classList.add('nav-top-section-wrapper-visible');
   } else {
     reset();
   }
+}
+
+function wrap(toWrap, wrapper) {
+  toWrap.parentNode.appendChild(wrapper);
+  return wrapper.appendChild(toWrap);
 }
 
 /**
@@ -72,6 +77,8 @@ export default async function decorate(block) {
       navSections.querySelectorAll(':scope > ul > li').forEach((navSection) => {
         decorateA(navSection);
         navSection.classList.add('nav-top-section-drop');
+        wrap(navSection.querySelector('ul'), document.createElement('div'));
+        navSection.querySelector('div').setAttribute('class', 'nav-top-section-wrapper');
         navSection.querySelector('ul').setAttribute('class', 'nav-top-section');
       });
     }
