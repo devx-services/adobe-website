@@ -6,102 +6,105 @@
     position: relative;
     line-height: 1.375rem;
     display: flex;
-    /*gap: 50px;*/
     height: 500px;
+    background-size: cover;
+    background-position: 100% 100%;
+    flex-flow: column wrap
 }
 
-.cards-item .card-image > picture > img {
-    position: relative;
-    height: 100%;
-    object-fit: cover;
-}
-
-.centered-pictures .cards-wrapper .cards .cards-item .card-image-positioned {
-    position: absolute;
-    bottom: 0;
-    right: 30%;
-}
-
-.cards-item .card-image-positioned {
+.cards-item .card-image {
     position: absolute;
     bottom: 5%;
     right: 5%;
 }
 
-.cards-item .card-link {
-    /*display: none;*/
-    z-index: 1;
+.centered-pictures .cards-item .card-imag {
     position: absolute;
-    width: 100%;
-    height: 100%;
+    bottom: 0;
+    right: 30%;
 }
 
-/*hide link from div*/
-.cards-item .card-link > a{
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    /*top: 0;*/
-    /*left: 0;*/
-    /*line-height: 0;*/
-    font-size: 0;
-    color: transparent;
+.card-text .button-container {
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.card-list .button-container {
+    font-size: 14px;
+    font-weight: 700;
 }
 
 .cards-item .card-text {
     top: 0;
     position: absolute;
+    display:flex;
+    flex-flow: column;
     padding-left: 2rem;
-    font-size: 1rem;
+    font-size: var(--body-font-size-s);
     height: 100%;
-    /*display: inline-block;*/
+    font-family: var(--body-font-family);
+    line-height: 21px;
+    font-style: normal;
+    font-weight: 500;
 }
 
-.card-text .button-container > a:link,
+.cards-item .card-list {
+    top: 0;
+    position: absolute;
+    padding-left: 2rem;
+    font-size: var(--body-font-size-s);
+    height: 100%;
+    width: 100%;
+    font-family: var(--body-font-family);
+    line-height: 21px;
+    font-style: normal;
+    font-weight: 700;
+}
+
+.card-list .button-container > a,
+.card-text .button-container > a {
+    color: inherit ! important;;
+}
+
+.card-list .button-container > a:active,
+.card-list .button-container > a:visited,
 .card-text .button-container > a:active,
-.card-text .button-container > a:visited
-{
+.card-text .button-container > a:visited {
     text-decoration: none;
-    color: inherit ! important;
-
 }
-
-/*.card-text .button-container > a {*/
-/*    !*color: black;*!*/
-/*    font-size: var(--body-font-size-s);*/
-/*    font-weight: bold*/
-/*}*/
 
 .card-text > h2 {
-    font-size: 1.5rem;
+    font-size: var(--heading-font-size-s);
     font-family: var(--body-font-family);
-    line-height: 1.75rem;
+    font-weight: 500;
 }
 
-.card-text > hr {
+.card-list > h2 {
+    font-size: 18px;
+    font-family: var(--body-font-family);
+    font-weight: 700;
+}
+
+.card-list > hr {
     border-bottom: 1px solid;
     width: 90%;
     margin: 0;
-    box-sizing: border-box;
 }
 
-/*add white color for text*/
-.centered-pictures .cards-wrapper .cards .cards-item:nth-child(n+2),
-.middle-text-white .cards-wrapper .cards .cards-item:nth-child(2) {
+.centered-pictures .cards-item:nth-child(n+2),
+.middle-text-white .cards-item:nth-child(2) {
     color: white;
 }
-
 @media (max-width: 1200px) {
     .cards.block {
         display: flex;
         min-height: 450px;
-        flex-direction: column;
         align-items: stretch;
-        /*justify-content: space-around;*/
         grid-gap: 40px;
-        flex-wrap: wrap;
+        flex-flow: column wrap
     }
 }
+
 @media (min-width: 1200px) {
     .section.cards-grid >div {
         margin: 0;
@@ -109,6 +112,7 @@
 
     .cards.block {
         --gap: 40px;
+
         display: grid;
         gap: var(--gap);
         grid-template-columns: 33.33% 33.33% 33.33%;
