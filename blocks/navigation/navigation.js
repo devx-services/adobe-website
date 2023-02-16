@@ -14,7 +14,7 @@ function openCloseNavTopSectionClickHandler(event) {
   }
 
   let arrowElement = event.target;
-  if (event.target instanceof HTMLSpanElement) {
+  if (event.target instanceof HTMLSpanElement || event.target instanceof HTMLAnchorElement) {
     arrowElement = event.target.querySelector('i');
   }
   if (arrowElement.classList.contains('nav-top-section-drop-arrow-down')) {
@@ -41,7 +41,7 @@ export default async function decorate(block) {
     span.appendChild(text);
     i.setAttribute('class', 'nav-top-section-drop-arrow nav-top-section-drop-arrow-down');
     span.appendChild(i);
-    span.addEventListener('click', openCloseNavTopSectionClickHandler);
+    navSection.querySelector('a').addEventListener('click', openCloseNavTopSectionClickHandler);
     navSection.querySelector('a').replaceChildren(span);
   }
 
