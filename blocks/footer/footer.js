@@ -27,11 +27,17 @@ export default async function decorate(block) {
   footer.className = 'footer-wrap';
   footer.innerHTML = html;
   const footerBlock = footer.querySelector(':scope > div');
-  const menu = footerBlock.firstElementChild;
-  menu.className = 'footer-menu';
-  const featuredProducts = footerBlock.nextElementSibling;
-  featuredProducts.className = 'footer-featured-products';
-  const copyright = featuredProducts.nextElementSibling;
-  copyright.className = 'copyright';
+  if(footerBlock.firstElementChild) {
+    const menu = footerBlock.firstElementChild;
+    menu.className = 'footer-menu';
+  }
+  if(footerBlock.nextElementSibling) {
+    const featuredProducts = footerBlock.nextElementSibling;
+    featuredProducts.className = 'footer-featured-products';
+    if(featuredProducts.nextElementSibling) {
+      const copyright = featuredProducts.nextElementSibling;
+      copyright.className = 'copyright';
+    }
+  }
   block.append(footer);
 }
