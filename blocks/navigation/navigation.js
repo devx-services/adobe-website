@@ -4,6 +4,7 @@ import { readBlockConfig, decorateIcons } from '../../scripts/lib-franklin.js';
  * @param {PointerEvent} event
  */
 function openCloseNavTopSectionClickHandler(event) {
+  event.preventDefault();
   function reset() {
     // reset to a "default" state
     document.querySelectorAll('div.nav-top-section-wrapper').forEach((item) => item.classList.remove('nav-top-section-wrapper-visible'));
