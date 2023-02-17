@@ -1,18 +1,50 @@
-import { createOptimizedPicture } from '../../scripts/lib-franklin.js';
-
 export default function decorate(block) {
-  /* change to ul, li */
-  const ul = document.createElement('ul');
+  /**
+   *
+   * @param url
+   * @returns {string}
+   */
+  function getBackgroundUrl(url) {
+    return `url('${url}')`;
+  }
+
+  /**
+   *
+   * @param row
+   * @param imageProvider
+   */
+  function setBackgroundOnRow(row, imageProvider) {
+    if (imageProvider.querySelector('picture > img')) {
+      row.style.backgroundImage = getBackgroundUrl(imageProvider.querySelector('picture > img').src);
+    } else {
+      row.style.backgroundColor = imageProvider.textContent;
+    }
+    row.removeChild(imageProvider);
+  }
+
   [...block.children].forEach((row) => {
-    const li = document.createElement('li');
-    li.innerHTML = row.innerHTML;
-    [...li.children].forEach((div) => {
-      if (div.children.length === 1 && div.querySelector('picture')) div.className = 'cards-card-image';
-      else div.className = 'cards-card-body';
+    row.classList.add('cards-item');
+    /* set background image */
+    setBackgroundOnRow(row, row.children[0]);
+    [...row.children].forEach((div) => {
+      /* remove empty divs */
+      if (div.innerHTML === '') {
+        div.remove();
+      }
+      if (div.querySelector('picture')) {
+        /* style for images to overlap */
+        div.classList.add('card-image');
+      } else if (div.querySelectorAll('h2') && div.querySelectorAll('.button-container').length > 1) {
+        /* add vertical line after heading */
+        div.querySelectorAll('h2').forEach(((heading) => {
+          const hrContainer = document.createElement('hr');
+          heading.after(hrContainer);
+          div.classList.add('card-list');
+        }));
+      } else {
+        div.classList.add('card-text');
+      }
+      block.querySelectorAll('.primary').forEach(((link) => link.classList.remove('button', 'primary')));
     });
-    ul.append(li);
   });
-  ul.querySelectorAll('img').forEach((img) => img.closest('picture').replaceWith(createOptimizedPicture(img.src, img.alt, false, [{ width: '750' }])));
-  block.textContent = '';
-  block.append(ul);
 }
