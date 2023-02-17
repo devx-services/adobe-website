@@ -1,4 +1,4 @@
-import { readBlockConfig, decorateIcons } from '../../scripts/lib-franklin.js';
+import { readBlockConfig } from '../../scripts/lib-franklin.js';
 
 /**
  * loads and decorates the footer
@@ -21,19 +21,17 @@ export default async function decorate(block) {
   const cfg = readBlockConfig(block);
   block.textContent = '';
   const footerPath = cfg.footer || '/footer';
-  console.log(footerPath)
   const resp = await fetch(`${footerPath}.plain.html`);
   const html = await resp.text();
-  let footer = document.createElement('div');
+  const footer = document.createElement('div');
   footer.className = 'footer-wrap';
   footer.innerHTML = html;
-  let footerBlock = footer.querySelector(':scope > div');
-  let menu = footerBlock.firstElementChild;
+  const footerBlock = footer.querySelector(':scope > div');
+  const menu = footerBlock.firstElementChild;
   menu.className = 'footer-menu';
-  let featuredProducts = footerBlock.nextElementSibling;
-  console.log(featuredProducts)
-  featuredProducts.className = 'footer-featuredProducts'
-  let copyright = featuredProducts.nextElementSibling;
+  const featuredProducts = footerBlock.nextElementSibling;
+  featuredProducts.className = 'footer-featured-products';
+  const copyright = featuredProducts.nextElementSibling;
   copyright.className = 'copyright';
   block.append(footer);
 }
