@@ -27,14 +27,14 @@ export default async function decorate(block) {
   footer.className = 'footer-wrap';
   footer.innerHTML = html;
   const footerBlock = footer.querySelector(':scope > div');
-  if(footerBlock.firstElementChild) {
+  if (footerBlock.firstElementChild) {
     const menu = footerBlock.firstElementChild;
     menu.className = 'footer-menu';
   }
-  if(footerBlock.nextElementSibling) {
+  if (footerBlock.nextElementSibling) {
     const featuredProducts = footerBlock.nextElementSibling;
     featuredProducts.className = 'footer-featured-products';
-    if(featuredProducts.nextElementSibling) {
+    if (featuredProducts.nextElementSibling) {
       const copyright = featuredProducts.nextElementSibling;
       copyright.className = 'copyright';
     }
