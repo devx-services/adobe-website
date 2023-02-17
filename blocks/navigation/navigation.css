@@ -1,3 +1,7 @@
+#nav {
+    width: 60%;
+}
+
 .navigation {
     display: flex;
     justify-content: center;
@@ -12,7 +16,7 @@ div.nav-sections {
 ul#nav-top {
     height: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: left;
 }
 
 div.nav-sections ul {
@@ -38,7 +42,7 @@ li.nav-top-section-drop>a {
     height: 100%;
     display: flex;
     align-items: center;
-    padding: 0 15px;
+    padding: 0 40px 0 0;
 }
 
 ul.nav-top-section>li {
@@ -69,6 +73,18 @@ ul.nav-top-section>li>ul>li>a {
     align-items: center;
     padding: 4px 0;
     width: 90%;
+    white-space: nowrap;
+}
+
+ul.nav-top-section>li>ul>li>a>span {
+    display: flex;
+    flex-direction: column;
+}
+
+ul.nav-top-section>li>ul>li>a span.description {
+    color: #656565;
+    font-weight: 400;
+    font-size: 12px;
 }
 
 div.nav-sections a:link {
@@ -126,6 +142,10 @@ i.nav-top-section-drop-arrow-down {
 
 i.nav-top-section-drop-arrow-up {
     transform: rotate(225deg);
+}
+
+ul.nav-top-section {
+    width: 60%;
 }
 
 ul.nav-top-section-flex {
