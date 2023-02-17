@@ -1,7 +1,9 @@
 import {
   sampleRUM,
   buildBlock,
+  /*
   loadHeader,
+  */
   loadFooter,
   decorateButtons,
   decorateIcons,
@@ -11,6 +13,8 @@ import {
   waitForLCP,
   loadBlocks,
   loadCSS,
+  decorateBlock,
+  loadBlock,
 } from './lib-franklin.js';
 
 const LCP_BLOCKS = []; // add your LCP blocks to the list
@@ -85,6 +89,16 @@ export function addFavIcon(href) {
 }
 
 /**
+ * loads a block named 'navigation' into header
+ */
+function loadNavigation(header) {
+  const navBlock = buildBlock('navigation', '');
+  header.append(navBlock);
+  decorateBlock(navBlock);
+  return loadBlock(navBlock);
+}
+
+/**
  * loads everything that doesn't need to be delayed.
  */
 async function loadLazy(doc) {
@@ -95,7 +109,10 @@ async function loadLazy(doc) {
   const element = hash ? doc.getElementById(hash.substring(1)) : false;
   if (hash && element) element.scrollIntoView();
 
+  /*
   loadHeader(doc.querySelector('header'));
+  */
+  loadNavigation(doc.querySelector('header'));
   loadFooter(doc.querySelector('footer'));
 
   loadCSS(`${window.hlx.codeBasePath}/styles/lazy-styles.css`);

@@ -1,0 +1,142 @@
+.navigation {
+    display: flex;
+    justify-content: center;
+}
+
+div.nav-sections {
+    width: 100%;
+    height: 64px;
+    font-size: 14px;
+}
+
+ul#nav-top {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+div.nav-sections ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+li.nav-top-section-drop {
+    display: flex;
+    align-items: center;
+}
+
+li.nav-top-section-drop:hover {
+    background-color: #FAFAFA;
+}
+
+li.nav-top-section-drop>a {
+    color: #2c2c2c;
+    font-weight: 400;
+    font-size: 14px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 15px;
+}
+
+ul.nav-top-section>li {
+    float: left;
+    width: 25%;
+}
+
+ul.nav-top-section>li>strong {
+    color: rgb(75 75 75);
+    font-size: 14px;
+    font-weight: 600;
+    border-bottom: solid 1px #E1E1E1;
+    display: inline-block;
+    width: 90%;
+}
+
+ul.nav-top-section>li>ul>li {
+    display: flex;
+    align-items: center;
+}
+
+ul.nav-top-section>li>ul>li>a {
+    color: #2c2c2c;
+    font-weight: 400;
+    font-size: 14px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 4px 0;
+    width: 90%;
+}
+
+div.nav-sections a:link {
+    text-decoration: none;
+}
+
+div.nav-sections a:visited {
+    text-decoration: none;
+}
+
+div.nav-sections a:hover {
+    text-decoration: none;
+}
+
+div.nav-sections a:active {
+    text-decoration: none;
+}
+
+ul.nav-top-section>li>ul>li:hover {
+    background-color: #F5F5F5;
+}
+
+ul.nav-top-section>li>ul>li:hover > a {
+    color: #1473e6;
+}
+
+div.nav-top-section-wrapper {
+    display: none;
+    justify-content: center;
+    position: absolute;
+    z-index: 1;
+    width: calc(100vw - 8px);
+    top: 64px;
+    left: 0;
+    background-color: #FAFAFA;
+}
+
+i.nav-top-section-drop-arrow {
+    border-color: #2c2c2c;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    content: "";
+    display: inline-block;
+    height: 6px;
+    margin-left: 5px;
+    margin-right: 2.25px;
+    transform-origin: 75% 75%;
+    transition: transform .1s ease;
+    width: 6px;
+}
+
+i.nav-top-section-drop-arrow-down {
+    transform: rotate(45deg);
+}
+
+i.nav-top-section-drop-arrow-up {
+    transform: rotate(225deg);
+}
+
+ul.nav-top-section-flex {
+    display: flex;
+    justify-content: space-between;
+}
+
+ul.nav-top-section-block {
+    display: block;
+}
+
+div.nav-top-section-wrapper-visible {
+    display: flex;
+}
