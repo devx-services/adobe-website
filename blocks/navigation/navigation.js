@@ -23,6 +23,11 @@ function openCloseNavTopSectionClickHandler(event) {
     arrowElement.classList.remove('nav-top-section-drop-arrow-down');
     arrowElement.classList.add('nav-top-section-drop-arrow-up');
 
+    if (arrowElement.closest('li').querySelector('ul').querySelectorAll(':scope > li').length > 3) {
+      arrowElement.closest('li').querySelector('ul').classList.add('nav-top-section-block');
+    } else {
+      arrowElement.closest('li').querySelector('ul').classList.add('nav-top-section-flex');
+    }
     arrowElement.closest('li').querySelector('div').classList.add('nav-top-section-wrapper-visible');
   } else {
     reset();
