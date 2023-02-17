@@ -86,6 +86,32 @@ export default async function decorate(block) {
         wrap(navSection.querySelector('ul'), document.createElement('div'));
         navSection.querySelector('div').setAttribute('class', 'nav-top-section-wrapper');
         navSection.querySelector('ul').setAttribute('class', 'nav-top-section');
+
+        // transform links
+        const regex = /.*(\[.*\])$/;
+        navSection.querySelectorAll('ul>li>ul>li>a').forEach((aEl) => {
+          if (aEl.getAttribute('href').startsWith('file:///')) {
+            aEl.setAttribute('href', aEl.getAttribute('href').replace('file:///', 'https://adobe.com'));
+          }
+          const found = aEl.textContent.match(regex);
+          if (found !== null && found.length > 1) {
+            let description = found[found.length - 1];
+            const mainText = aEl.textContent
+              .substring(0, aEl.textContent.length - description.length).trim();
+            description = description.substring(1, description.length - 1);
+            const mainTextSpan = document.createElement('span');
+            const mainTextNode = document.createTextNode(mainText);
+            mainTextSpan.appendChild(mainTextNode);
+            const descriptionSpan = document.createElement('span');
+            descriptionSpan.classList.add('description');
+            const descriptionNode = document.createTextNode(description);
+            descriptionSpan.appendChild(descriptionNode);
+            const wrapperSpan = document.createElement('span');
+            wrapperSpan.append(mainTextSpan);
+            wrapperSpan.append(descriptionSpan);
+            aEl.replaceChildren(wrapperSpan);
+          }
+        });
       });
     }
 
