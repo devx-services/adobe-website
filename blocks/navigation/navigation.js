@@ -81,14 +81,44 @@ export default async function decorate(block) {
     if (navSections) {
       navSections.querySelector('ul').setAttribute('id', 'nav-top');
       navSections.querySelectorAll(':scope > ul > li').forEach((navSection) => {
-        decorateA(navSection);
         navSection.classList.add('nav-top-section-drop');
+        const regex = /.*(\[.*\])$/;
+        if (navSection.querySelector('ul') === null) {
+          const aEl = navSection.querySelector(':scope > a');
+          const found = aEl.textContent.match(regex);
+          let spec = found[found.length - 1];
+          const title = aEl.textContent
+            .substring(0, aEl.textContent.length - spec.length).trim();
+          spec = spec.substring(1, spec.length - 1);
+          spec = spec.split(';');
+          const titleSpan = document.createElement('span');
+          titleSpan.classList.add('nav-top-section-title');
+          const titleNode = document.createTextNode(title);
+          titleSpan.appendChild(titleNode);
+          aEl.replaceChildren(titleSpan);
+
+          const adobeLogo = spec.includes('adobe_logo');
+          if (adobeLogo) {
+            const imgSpan = document.createElement('span');
+            imgSpan.classList.add('nav-top-section-adobe-logo-img-span');
+            const img = document.createElement('img');
+            img.setAttribute('src', './icons/Adobe_Corporate_Horizontal_Red_HEX.svg');
+            img.setAttribute('alt', 'Adobe, Inc.');
+            img.classList.add('nav-top-section-adobe-logo-img');
+            imgSpan.appendChild(img);
+
+            aEl.insertBefore(imgSpan, titleSpan);
+          }
+          const className = adobeLogo ? 'nav-top-section-adobe-logo' : 'nav-top-section-drop';
+          navSection.classList.add(className);
+          return;
+        }
+        decorateA(navSection);
         wrap(navSection.querySelector('ul'), document.createElement('div'));
         navSection.querySelector('div').setAttribute('class', 'nav-top-section-wrapper');
         navSection.querySelector('ul').setAttribute('class', 'nav-top-section');
 
         // transform links
-        const regex = /.*(\[.*\])$/;
         navSection.querySelectorAll('ul>li>ul>li>a').forEach((aEl) => {
           if (aEl.getAttribute('href').startsWith('file:///')) {
             aEl.setAttribute('href', aEl.getAttribute('href').replace('file:///', 'https://adobe.com'));
