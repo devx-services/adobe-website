@@ -42,7 +42,7 @@ li.nav-top-section-drop>a {
     height: 100%;
     display: flex;
     align-items: center;
-    padding: 0 40px 0 0;
+    padding: 0 16px;
 }
 
 ul.nav-top-section>li {
@@ -73,7 +73,7 @@ ul.nav-top-section>li>ul>li>a {
     align-items: center;
     padding: 4px 0;
     width: 90%;
-    white-space: nowrap;
+    white-space: break-spaces;
 }
 
 ul.nav-top-section>li>ul>li>a>span {
@@ -144,8 +144,9 @@ i.nav-top-section-drop-arrow-up {
     transform: rotate(225deg);
 }
 
-ul.nav-top-section {
+div.nav-top-section-wrapper > ul.nav-top-section {
     width: 60%;
+    margin: 40px 0;
 }
 
 ul.nav-top-section-flex {
@@ -159,4 +160,28 @@ ul.nav-top-section-block {
 
 div.nav-top-section-wrapper-visible {
     display: flex;
+}
+
+li.nav-top-section-adobe-logo {
+    width: 155px;
+    height: 64px;
+    position: absolute;
+    top: 0;
+    left: calc(20% - 155px);
+}
+
+ul#nav-top>li.nav-top-section-adobe-logo>a {
+    font-weight: 700;
+    font-size: 18px;
+    font-style: normal;
+    color: #FA0F00;
+}
+
+.nav-top-section-adobe-logo-img-span {
+    margin-right: 10px;
+}
+
+.nav-top-section-adobe-logo-img {
+    width: 35px;
+    height: 35px;
 }
